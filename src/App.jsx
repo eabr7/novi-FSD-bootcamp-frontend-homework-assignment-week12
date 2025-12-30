@@ -1,7 +1,8 @@
 
 import './App.css'
+import React from "react"
 import FruitCounter from "./components/counters/fruitCounter/fruitCounter.jsx";
-import React from "react";
+import SubmitButton from "./components/buttons/submitButton/submitButton.jsx";
 import { useForm } from 'react-hook-form';
 
 
@@ -13,6 +14,9 @@ function App() {
 
     const { register } = useForm();
 
+    function resetAll() {
+        setApple(0), setBanana(0), setStrawberry(0), setKiwi(0)
+    }
 
   return (
     <>
@@ -43,8 +47,7 @@ function App() {
             amount={kiwi}
             setAmount={setKiwi}
         />
-
-
+        <SubmitButton type="button" click={resetAll} name="reset"/>
 
 
     </>
