@@ -5,6 +5,8 @@ import FruitCounter from "./components/counters/fruitCounter/fruitCounter.jsx";
 import SubmitButton from "./components/buttons/submitButton/submitButton.jsx";
 import {useForm} from 'react-hook-form';
 import InputForm from "./forms/inputForm/inputForm.jsx";
+import SelectForm from "./forms/selectForm/selectForm.jsx";
+import RadioForm from "./forms/radioForm/radioForm.jsx";
 
 
 function App() {
@@ -133,6 +135,36 @@ function App() {
                         }
                     }}
                 />
+
+                <SelectForm
+                    label="Bezorgfrequentie: "
+                    name="deliveryFrequency"
+                    register={register}
+                    options={[
+                        { value: 'weekly', label: 'Iedere week' },
+                        { value: 'biweekly', label: 'Om de week' },
+                        { value: 'monthly', label: 'Iedere maand' }
+                    ]}
+                />
+
+                <div className="radio-buttons">
+                    <RadioForm
+                        id="day"
+                        label="Overdag"
+                        name="deliveryMoment"
+                        value="day"
+                        register={register}
+                    />
+
+                    <RadioForm
+                        id="night"
+                        label="’s Avonds"
+                        name="deliveryMoment"
+                        value="night"
+                        register={register}
+                    />
+                </div>
+
 
 
                 <SubmitButton

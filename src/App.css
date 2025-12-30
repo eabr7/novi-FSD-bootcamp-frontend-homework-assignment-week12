@@ -49,3 +49,24 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message {
+    color: red;
+}
+
+.radio-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+

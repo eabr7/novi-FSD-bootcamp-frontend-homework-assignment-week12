@@ -13,3 +13,11 @@ Table of Contents:
 	    - 4.5 Footer    
 	    5. Queries
 ////////////////////////////////////////////////////////////////////////*/
+
+.select-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+
