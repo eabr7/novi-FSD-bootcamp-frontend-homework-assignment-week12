@@ -1,17 +1,16 @@
 import './fruitCounter.css';
-import { plusOne, minusOne } from '../../../helpers/counters.js';
 import CounterButton from "../../buttons/counterButton/counterButton.jsx";
 
-function FruitCounter( {emoji, name, amount, setAmount }) {
+function FruitCounter( {emoji, name, type, amount, onChange }) {
 
     return (
 
     <article className="fruitCounter">
         <p>{emoji}</p>
         <p>{name}</p>
-        <CounterButton onClick={() => setAmount(minusOne(amount))} disable={amount === 0} name="-"/>
+        <CounterButton onClick={() => onChange(type, "remove")} disable={amount === 0} name="-"/>
         <p>{amount}</p>
-        <CounterButton onClick={() => setAmount(plusOne(amount))} name="+" />
+        <CounterButton onClick={() => onChange(type, "add")} name="+" />
     </article>
 
     );

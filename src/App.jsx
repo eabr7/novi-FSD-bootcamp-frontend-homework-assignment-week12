@@ -9,30 +9,46 @@ import SelectForm from "./forms/selectForm/selectForm.jsx";
 import RadioForm from "./forms/radioForm/radioForm.jsx";
 import TextAreaForm from "./forms/textAreaFrom/textAreaForm.jsx";
 import CheckboxForm from "./forms/checkboxForm/checkboxForm.jsx";
+import {plusOne, minusOne} from "./helpers/counters.js";
 
 
 function App() {
-    const [strawberry, setStrawberry] = React.useState(0);
-    const [banana, setBanana] = React.useState(0);
-    const [apple, setApple] = React.useState(0);
-    const [kiwi, setKiwi] = React.useState(0);
+    const [fruit, setFruit] = React.useState({
+        strawberry: 0,
+        banana: 0,
+        apple: 0,
+        kiwi: 0,
+    });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     function resetAll() {
-        setApple(0);
-        setBanana(0);
-        setStrawberry(0);
-        setKiwi(0);
+        setFruit({strawberry: 0, apple: 0, kiwi: 0, banana: 0});
     }
 
     function handleFormSubmit(data) {
         console.log(
             {
                 form: data,
-                fruit: {strawberry, banana, apple, kiwi}
+                fruit: fruit,
             }
         );
+    }
+
+    function handleFruitChange(type, action) {
+        let newValue;
+
+        if (action === 'add') {
+            newValue = plusOne(fruit[type]);
+        }
+        else if (action === 'remove') {
+            newValue = minusOne(fruit[type]);
+        }
+
+        setFruit({
+            ...fruit,
+            [type]: newValue,
+        });
     }
 
   return (
@@ -45,26 +61,30 @@ function App() {
             <FruitCounter
                 emoji="🍓"
                 name="Aardbeien"
-                amount={strawberry}
-                setAmount={setStrawberry}
+                type="strawberry"
+                amount={fruit.strawberry}
+                onChange={handleFruitChange}
             />
             <FruitCounter
                 emoji="🍌"
                 name="Bananen"
-                amount={banana}
-                setAmount={setBanana}
+                type="banana"
+                amount={fruit.banana}
+                onChange={handleFruitChange}
             />
             <FruitCounter
                 emoji="🍎"
                 name="Appels"
-                amount={apple}
-                setAmount={setApple}
+                type="apple"
+                amount={fruit.apple}
+                onChange={handleFruitChange}
             />
             <FruitCounter
                 emoji="🥝"
                 name="Kiwi's"
-                amount={kiwi}
-                setAmount={setKiwi}
+                type="kiwi"
+                amount={fruit.kiwi}
+                onChange={handleFruitChange}
             />
 
             <SubmitButton
