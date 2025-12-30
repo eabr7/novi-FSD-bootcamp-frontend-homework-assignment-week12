@@ -88,7 +88,11 @@ function App() {
                         required: {
                             value: true,
                             message: 'Voornaam is verplicht',
-                        }
+                        },
+                        maxLength: {
+                            value: 50,
+                            message: 'Voornaam mag maximaal 50 tekens bevatten',
+                        },
                     }}
                 />
                 <InputForm
@@ -103,7 +107,11 @@ function App() {
                         required: {
                             value: true,
                             message: 'Achternaam is verplicht',
-                        }
+                        },
+                        maxLength: {
+                            value: 50,
+                            message: 'Achternaam mag maximaal 50 tekens bevatten',
+                        },
                     }}
 
                 />
@@ -119,7 +127,12 @@ function App() {
                         required: {
                             value: true,
                             message: 'Leeftijd is verplicht',
-                        }
+                        },
+                        valueAsNumber: true,
+                        min: {
+                            value: 18,
+                            message: 'Je moet minimaal 18 jaar zijn',
+                        },
                     }}
                 />
                 <InputForm
@@ -134,7 +147,11 @@ function App() {
                         required: {
                             value: true,
                             message: 'Postcode is verplicht',
-                        }
+                        },
+                        pattern: {
+                            value: /^\d{4}\s?[A-Za-z]{2}$/,
+                            message: 'Postcode moet het formaat 1234AB hebben',
+                        },
                     }}
                 />
 
@@ -178,10 +195,10 @@ function App() {
                     register={register}
                     errors={errors}
                     validation={{
-                        required: {
-                            value: true,
-                            message: 'Opmerking is verplicht',
-                        }
+                        maxLength: {
+                            value: 250,
+                            message: 'Opmerking mag maximaal 250 tekens bevatten',
+                        },
                     }}
                 />
 

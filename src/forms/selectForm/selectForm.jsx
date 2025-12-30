@@ -1,11 +1,11 @@
 import './selectForm.css';
 
-function selectForm({label, name, register, options }) {
+function SelectForm({label, name, register, options }) {
 
     return (
         <label className="select-form">
             {label}
-            <select {...register(name)}>>
+            <select {...register(name)}>
                 {options.map(option => (
                     <option key={option.value} value={option.value}>
                         {option.label}
@@ -17,6 +17,6 @@ function selectForm({label, name, register, options }) {
 
 }
 
-export default selectForm;
+export default SelectForm;
 
 

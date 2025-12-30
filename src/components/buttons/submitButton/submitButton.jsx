@@ -1,11 +1,10 @@
 import './submitButton.css';
 
-function SubmitButton({type, name, submit, click}) {
+function SubmitButton({type, name, click}) {
 
     return (
         <button
             type={type}
-            onSubmit={submit}
             onClick={click}
             className="submitButton">
             {name}
