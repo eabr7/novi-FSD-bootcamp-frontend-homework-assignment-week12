@@ -7,6 +7,7 @@ import {useForm} from 'react-hook-form';
 import InputForm from "./forms/inputForm/inputForm.jsx";
 import SelectForm from "./forms/selectForm/selectForm.jsx";
 import RadioForm from "./forms/radioForm/radioForm.jsx";
+import TextAreaForm from "./forms/textAreaFrom/textAreaForm.jsx";
 
 
 function App() {
@@ -165,7 +166,16 @@ function App() {
                     />
                 </div>
 
-
+                <TextAreaForm
+                    className="comment-field"
+                    label="Opmerkingen:"
+                    id="comment"
+                    rows={5}
+                    cols={30}
+                    placeholder="Opmerkingen..."
+                    name="comment"
+                    register={register}
+                />
 
                 <SubmitButton
                     type="submit"

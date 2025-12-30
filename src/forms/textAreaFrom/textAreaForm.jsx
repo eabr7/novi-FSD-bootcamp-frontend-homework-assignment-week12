@@ -1,24 +1,23 @@
 import './textAreaForm.css';
 
 
-function textAreaForm({htmlForName, labelName, idName, rows, columns, placeHolder, registerName}) {
+function TextAreaForm({id, className, label, rows, cols, placeholder, register, name}) {
 
     return (
 
-        <label htmlFor={htmlForName}>
-            {labelName}
+        <label htmlFor={id} className={className}>
+            {label}
             <textarea
-                id={idName}
+                id={id}
                 rows={rows}
-                cols={columns}
-                placeholder={placeHolder}
-                {...register({registerName})}
-            >
-        </textarea>
+                cols={cols}
+                placeholder={placeholder}
+                {...register(name)}
+            />
         </label>
 
     );
 
 }
 
-export default textAreaForm;
+export default TextAreaForm;
