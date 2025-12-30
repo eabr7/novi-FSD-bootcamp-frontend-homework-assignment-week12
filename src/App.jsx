@@ -1,7 +1,8 @@
 
 import './App.css'
-import FruitCounter from "./components/fruitCounter/fruitCounter.jsx";
+import FruitCounter from "./components/counters/fruitCounter/fruitCounter.jsx";
 import React from "react";
+import { useForm } from 'react-hook-form';
 
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
     const [banana, setBanana] = React.useState(0);
     const [apple, setApple] = React.useState(0);
     const [kiwi, setKiwi] = React.useState(0);
+
+    const { register } = useForm();
+
 
   return (
     <>
@@ -39,6 +43,8 @@ function App() {
             amount={kiwi}
             setAmount={setKiwi}
         />
+
+
 
 
     </>
