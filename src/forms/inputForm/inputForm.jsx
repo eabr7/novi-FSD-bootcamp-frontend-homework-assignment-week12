@@ -1,7 +1,7 @@
-import './orderForm.css';
+import './inputForm.css';
 
 
-function InputForm({id, className,label, type, register, name }) {
+function InputForm({id, className,label, type, register, errors, name, validation}) {
 
     return (
 
@@ -10,10 +10,10 @@ function InputForm({id, className,label, type, register, name }) {
             <input
                 type={type}
                 id={id}
-                {...register(name)}
+                {...register(name, validation)}
             />
+            {errors[name] && <p className="error-message">{errors[name].message}</p>}
         </label>
-
     );
 
 }

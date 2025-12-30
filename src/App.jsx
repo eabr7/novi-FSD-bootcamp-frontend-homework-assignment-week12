@@ -13,7 +13,7 @@ function App() {
     const [apple, setApple] = React.useState(0);
     const [kiwi, setKiwi] = React.useState(0);
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     function resetAll() {
         setApple(0);
@@ -79,6 +79,13 @@ function App() {
                     type="text"
                     name="firstName"
                     register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Voornaam is verplicht',
+                        }
+                    }}
                 />
                 <InputForm
                     id="last-name-field"
@@ -87,6 +94,14 @@ function App() {
                     type="text"
                     name="lastName"
                     register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Achternaam is verplicht',
+                        }
+                    }}
+
                 />
                 <InputForm
                     id="age-field"
@@ -95,6 +110,13 @@ function App() {
                     type="number"
                     name="age"
                     register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Leeftijd is verplicht',
+                        }
+                    }}
                 />
                 <InputForm
                     id="postal-code-field"
@@ -103,9 +125,14 @@ function App() {
                     type="text"
                     name="postalCode"
                     register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Postcode is verplicht',
+                        }
+                    }}
                 />
-
-
 
 
                 <SubmitButton
