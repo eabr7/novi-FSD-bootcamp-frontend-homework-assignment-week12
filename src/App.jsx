@@ -8,6 +8,7 @@ import InputForm from "./forms/inputForm/inputForm.jsx";
 import SelectForm from "./forms/selectForm/selectForm.jsx";
 import RadioForm from "./forms/radioForm/radioForm.jsx";
 import TextAreaForm from "./forms/textAreaFrom/textAreaForm.jsx";
+import CheckboxForm from "./forms/checkboxForm/checkboxForm.jsx";
 
 
 function App() {
@@ -175,15 +176,35 @@ function App() {
                     placeholder="Opmerkingen..."
                     name="comment"
                     register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Opmerking is verplicht',
+                        }
+                    }}
+                />
+
+                <CheckboxForm
+                    id="termsAndConditionsAgreement"
+                    name="termsAndConditionsAgreement"
+                    className="terms-and-conditions-agreement-field"
+                    label="Ik ga akkoord met de voorwaarden"
+                    register={register}
+                    errors={errors}
+                    validation={{
+                        required: {
+                            value: true,
+                            message: 'Akkoord gaan met de voorwaarden is verplicht',
+                        }
+                    }}
+
                 />
 
                 <SubmitButton
                     type="submit"
                     name="verzenden"
                 />
-
-
-
 
             </form>
         </footer>
